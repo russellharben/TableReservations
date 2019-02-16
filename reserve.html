@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mainMenu">
+        <a href="home.html">Main Menu</a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1 class="headers">Reservations</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <form class="backgroundWhite padding20 marginTop20perc">
+
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input class="form-control" id="name" placeholder="Name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input class="form-control" id="phone" placeholder="Phone Number" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input class="form-control" id="email" placeholder="Email Address" />
+                    </div>
+                    <div class="form-group">
+                        <button id="submitInfo" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $("#submitInfo").on('click', function () {
+
+            var name = $("#name").val().trim();
+            var phone = $("#phone").val().trim();
+            var email = $("#email").val().trim();
+
+            $.post("/api/reserve",
+                {
+                    name: name,
+                    phone: phone,
+                    email: email
+                },
+                function (data, status) {
+                    console.log("Data: " + data + "\nStatus: " + status);
+                });
+        })
+
+    </script>
+</body>
+</html>

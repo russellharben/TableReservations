@@ -1,0 +1,103 @@
+body {
+    padding:0px;
+    margin:0px;
+    font-family: 'Monoton', cursive;
+    background-image: url('https://cdn-images-1.medium.com/max/2000/1*CvjaHZvg7MiHwdCKT7ugLg.jpeg');
+    background-size:cover;
+}
+
+.backgroundWhite {
+    /* background-color:#FFFFFB !important; */
+    height:100%;
+    width:100%;
+    border-radius:8px;
+    opacity:.95;
+    background-image:url('https://img.freepik.com/free-photo/white-paper-canvas-texture-background-design-backdrop-overlay-design_1962-68.jpg?size=626&ext=jpg');
+}
+
+.homeBtn {
+    padding:40px;
+    border:1px solid #d9d9d9;
+    background-color:black;
+    width:100%;
+    color:white;
+    text-align: center;
+    opacity:.8;
+    border-radius:8px;
+    font-size:24px;
+    transition:all .25s ease-out;
+}
+
+
+.homeBtn:hover{
+    background-color:white;
+    color:black;
+    border:1px solid white;
+    text-decoration:none;
+    transition:all .15s ease-in;
+    box-shadow:4px 8px 8px #333333 !important;
+}
+
+.homeBtn:nth-child(1) {
+    margin-top:40px;
+}
+
+.homeBtnContainer {
+    display:flex;
+    justify-content:center;
+}
+
+.padding20 {
+    padding:20px;
+}
+
+#hotdogImg {
+    position:absolute;
+}
+
+.headers {
+    color:#fff;
+    padding:80px 0px 40px 0px;
+}
+
+.marginTop20perc {
+    margin-top:(100vh/2);
+}
+
+form{
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.mainMenu {
+    margin-top:15px !important;
+    margin-left:15px !important;
+}
+
+.mainMenu a{
+    color:white;
+}
+
+.mainMenu a:hover {
+    font-size:17px;
+    color:#fafafa;
+    text-decoration:none;
+}
+
+#JUMBOTRON {
+    color:white;
+}
+
+.card {
+    margin-top:40px;
+}
+
+.btn {
+    background-color:#9C528B !important;
+    border:1px solid #B781AA;
+    color:white !important;
+}
+
+.btn:hover{
+    background-color:#804472 !important;
+    border:1px solid #DBC0D4 !important;
+}

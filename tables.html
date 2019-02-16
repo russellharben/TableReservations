@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>TABLES</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mainMenu">
+        <a href="home.html">Main Menu</a>
+    </div>
+    <!-- JUMBOTRON -->
+    <div class="container text-center" id="JUMBOTRON">
+        <div class="row">
+            <div class="container">
+                <h1 class="display-4 headers">HOTEST RESTAURANT</h1>
+            </div>
+        </div>
+    </div>
+    <!-- RESERVATIONS -->
+    <div class="container text-center" id="RESERVATIONS">
+        <div class="row">
+            <div class="card card-default w-100">
+                <div class="card-header">
+                    <h3>RESERVATIONS</h3>
+                </div>
+                <div class="card-body">
+                    <!-- ADD TABLES HERE -->
+                    <div class="addHere">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- WAITING LIST -->
+    <div class="container text-center" id="WAITING">
+        <div class="row">
+            <div class="card card-default w-100">
+                <div class="card-header">
+                    <h3>WAITING LIST</h3>
+                </div>
+                <div class="card-body">
+                    <div class="addWaiting">
+
+                    </div>
+                    <!-- ADD WAITING HERE -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/javascript.js"></script>
+
+    <script type="text/javascript">
+        $.ajax({
+          url: "/api/reserve",
+          method: "GET"
+        }).then(function(res) {
+          console.log(res);
+        
+          res.forEach(function(item){
+            var card=$("<div class='card cardDefault'>");
+            var cardHeader=$("<div class='card-header'>");
+            var cardBody=$("<div class='card-body'>");
+            cardBody.append($("<ul>"));
+            cardBody.append($("<li>"+item.name));
+            cardBody.append($("<li>"+item.phone));
+            cardBody.append($("<li>"+item.email));
+            cardHeader.append($("<h3>"+item.uniqueId));
+            card.append(cardHeader,cardBody);
+            if(res.indexOf(item)<5){
+              card.appendTo($("#addHere"));
+              $("#addHere").append($("<br>"));
+            }
+            else{
+              card.appendTo($("#addWaiting"));
+              $("#addWaiting").append($("<br>"));
+            }
+          });
+        });
+        </script>
+
+</body>
+
+</html>
