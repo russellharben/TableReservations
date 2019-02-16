@@ -15,16 +15,19 @@ app.use(express.json());
 //  Reservations(DATA)
 // =============================================================
 let currentres= [];
-let waitlist= [];
+
+counter = 0;
 
 function Reservation (name, phone, email) {
     this.name = name;
     this.phone = phone;
     this.email = email;
     this.uniqueId = function(){
-        0++
+        counter++;
+        return counter;
     };
   }; 
+
 
 // Routes
 // =============================================================
