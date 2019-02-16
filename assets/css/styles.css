@@ -92,12 +92,12 @@ form{
 }
 
 .btn {
-    background-color:#9C528B !important;
-    border:1px solid #B781AA;
+    background-color:#1EAE4E !important;
+    border:1px solid #1EAE4E;
     color:white !important;
 }
 
 .btn:hover{
-    background-color:#804472 !important;
-    border:1px solid #DBC0D4 !important;
+    background-color:#157A37 !important;
+    border:1px solid #157A37 !important;
 }
