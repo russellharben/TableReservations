@@ -43,6 +43,10 @@ app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 
+app.get("/assets/css/styles.css", function(req, res){
+  res.sendFile(path.join(__dirname, "assets/css/styles.css"));
+});
+
 app.get("/api/tables", function(req, res) {
     return res.json(table);
 });
