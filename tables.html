@@ -59,36 +59,44 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="assets/javascript/javascript.js"></script>
+    <!-- <script src="assets/javascript/javascript.js"></script> -->
 
     <script type="text/javascript">
         $.ajax({
-          url: "/api/reserve",
-          method: "GET"
-        }).then(function(res) {
-          console.log(res);
-        
-          res.forEach(function(item){
-            var card=$("<div class='card cardDefault'>");
-            var cardHeader=$("<div class='card-header'>");
-            var cardBody=$("<div class='card-body'>");
-            cardBody.append($("<ul>"));
-            cardBody.append($("<li>"+item.name));
-            cardBody.append($("<li>"+item.phone));
-            cardBody.append($("<li>"+item.email));
-            cardHeader.append($("<h3>"+item.uniqueId));
-            card.append(cardHeader,cardBody);
-            if(res.indexOf(item)<5){
-              card.appendTo($("#addHere"));
-              $("#addHere").append($("<br>"));
-            }
-            else{
-              card.appendTo($("#addWaiting"));
-              $("#addWaiting").append($("<br>"));
-            }
-          });
+            url: "/api/reserve",
+            method: "GET"
+        }).then(function (res) {
+
+            res.forEach(function (item) {
+                let resObj = res[0];
+                console.log(resObj);
+                // var card=$("<div class='card cardDefault'>");
+                var card = $(".addHere");
+                var cardHeader = $("<div class='card-header'>");
+                var cardBody = $("<div class='card-body'>");
+                // var cardList = card.append($("<ul>"));
+
+                card.append("<h3>").text(resObj.name).append("<br>");
+                card.append("<h3>").text(resObj.email).append("<br>");
+                card.append("<h3>").text(resObj.phone).append("<br>");
+                console.log(typeof resObj);
+                // card.append("<p>").text(resObj.email);
+                // card.append("<p>").text(resObj.phone);
+                // card.append($("<li>" + phone));
+                // card.append($("<li>" + email));
+                // cardHeader.append($("<h3>" + item.uniqueId));
+                card.append(cardHeader, cardBody);
+                if (res.indexOf(item) < 5) {
+                    card.appendTo($("#addHere"));
+                    $("#addHere").append($("<br>"));
+                }
+                else {
+                    card.appendTo($("#addWaiting"));
+                    $("#addWaiting").append($("<br>"));
+                }
+            });
         });
-        </script>
+    </script>
 
 </body>
 
