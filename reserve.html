@@ -71,8 +71,18 @@
                 function (data, status) {
                     console.log("Data: " + data + "\nStatus: " + status);
                 });
-        })
+
+            $("#name").val("");
+            $("#phone").val("");
+            $("#email").val("");
+
+            alert("Reservation successful");
+
+            window.location = "/tables";
+            
+        });
 
     </script>
 </body>
+
 </html>

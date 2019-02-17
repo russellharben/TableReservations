@@ -91,6 +91,14 @@ form{
     margin-top:40px;
 }
 
+.addHere {
+    font-family: 'montserrat', sans-serif;
+}
+
+.addHere div:nth-of-type(odd){
+    background-color:#f2f2f2 !important;
+}
+
 .btn {
     background-color:#1EAE4E !important;
     border:1px solid #1EAE4E;

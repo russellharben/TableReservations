@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Monoton|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
 <body>
@@ -67,34 +68,16 @@
             method: "GET"
         }).then(function (res) {
 
-            res.forEach(function (item) {
-                let resObj = res[0];
-                console.log(resObj);
-                // var card=$("<div class='card cardDefault'>");
+            for (i = 0; i < res.length; i++) {
                 var card = $(".addHere");
-                var cardHeader = $("<div class='card-header'>");
-                var cardBody = $("<div class='card-body'>");
-                // var cardList = card.append($("<ul>"));
+                var reserveDiv = $("<div>").css("padding", "10px");
+                console.log(res[i]);
+                card.append(reserveDiv.append("Reservation Number: " + parseInt(i + 1) + "<br>"));
+                card.append(reserveDiv.append(res[i].name + "<br>"));
+                card.append(reserveDiv.append(res[i].phone + "<br>"));
+                card.append(reserveDiv.append(res[i].email + "<br>"));
 
-                card.append("<h3>").text(resObj.name).append("<br>");
-                card.append("<h3>").text(resObj.email).append("<br>");
-                card.append("<h3>").text(resObj.phone).append("<br>");
-                console.log(typeof resObj);
-                // card.append("<p>").text(resObj.email);
-                // card.append("<p>").text(resObj.phone);
-                // card.append($("<li>" + phone));
-                // card.append($("<li>" + email));
-                // cardHeader.append($("<h3>" + item.uniqueId));
-                card.append(cardHeader, cardBody);
-                if (res.indexOf(item) < 5) {
-                    card.appendTo($("#addHere"));
-                    $("#addHere").append($("<br>"));
-                }
-                else {
-                    card.appendTo($("#addWaiting"));
-                    $("#addWaiting").append($("<br>"));
-                }
-            });
+            }
         });
     </script>
 
